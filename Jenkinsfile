@@ -2,12 +2,12 @@ pipeline {
     agent any
   
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from Git repository
-                git 'https://github.com/HebaAli48/simpleRestaurentPipeline.git'
-            }
-        }
+        // stage('Checkout') {
+        //     steps {
+        //         // Checkout the code from Git repository
+        //         git 'https://github.com/HebaAli48/simpleRestaurentPipeline.git'
+        //     }
+        // }
 
         stage('Install Dependencies') {
             steps {
