@@ -1,7 +1,3 @@
-Here’s a simple README for setting up a Jenkins pipeline for a restaurant app:
-
----
-
 # Restaurant App Jenkins Pipeline Setup
 
 This guide will help you set up a Jenkins pipeline for a simple restaurant app to automate build, test, and deployment processes.
@@ -40,93 +36,16 @@ Before starting, make sure you have the following:
    - You can trigger the build manually or by using **GitHub hook trigger** (useful for automatic builds on code push).
 
 3. **Pipeline Script**:
-   - In the **Pipeline** section, select **Pipeline script** and paste the following Jenkinsfile code.
+   - In the **Pipeline** section, select **Jenkinsfile** and enter the SCM info like git Url and Branch Specifier (*/main or */master).
 
 ---
 
-### 4. Example Jenkinsfile for Restaurant App
-
-```groovy
-pipeline {
-    agent any
-
-    environment {
-        NODE_HOME = tool name: 'NodeJS', type: 'NodeJS'
-    }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the code from Git repository
-                git 'https://github.com/yourusername/restaurant-app.git'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    // Install dependencies
-                    sh 'npm install'
-                }
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                script {
-                    // Run tests (you can add your testing framework here, e.g., Jest, Mocha)
-                    sh 'npm test'
-                }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                script {
-                    // Build the app (if applicable)
-                    sh 'npm run build'
-                }
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                script {
-                    // Deploy the app (this depends on your deployment strategy)
-                    sh 'npm run deploy'
-                }
-            }
-        }
-
-        stage('Cleanup') {
-            steps {
-                script {
-                    // Clean up any temporary files
-                    sh 'npm run clean'
-                }
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build and Deployment Successful!'
-        }
-        failure {
-            echo 'Something went wrong. Please check the build logs!'
-        }
-    }
-}
-```
-
----
-
-### 5. Save and Run the Pipeline
+### 4. Save and Run the Pipeline
 
 - Click **Save** and then **Build Now** to manually trigger the pipeline.
 - Monitor the console output to see the progress of each stage.
 
-### 6. Monitor Pipeline
+### 5. Monitor Pipeline
 
 - Check the Jenkins dashboard for the build history and logs.
 - If any errors occur during the pipeline, check the console logs for specific errors and fix them.
@@ -158,4 +77,3 @@ If any steps fail, you can monitor the output in the Jenkins console and take ac
 
 ---
 
-Let me know if you need further assistance with your pipeline setup or other configurations!
